@@ -1,0 +1,47 @@
+.sidebar {
+    width: 220px;
+    background-color: var(--sidebar-bg);
+    padding: 1rem;
+    color: var(--sidebar-text);
+    min-height: calc(100vh - 140px);
+    overflow-y: auto;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-menu li {
+    margin: 1rem 0;
+  }
+  
+  .sidebar-menu a {
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar-menu a:hover {
+    color: var(--accent-color);
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 180px;
+      padding: 0.8rem;
+    }
+  }

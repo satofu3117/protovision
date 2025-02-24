@@ -1,0 +1,77 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  .header-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .theme-toggle .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .theme-toggle .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .theme-toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .theme-toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  .theme-toggle input:checked + .slider {
+    background-color: var(--accent-color);
+  }
+  
+  .theme-toggle input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.logo {
+  height: 30px;  /* ヘッダーの高さに合わせて調整 */
+  width: auto;   /* アスペクト比を維持 */
+  object-fit: contain;  /* 画像が歪まないように設定 */
+  margin: 4px 8px;  /* 上下の余白を追加 */
+}

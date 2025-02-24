@@ -1,0 +1,73 @@
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    animation: fadeIn 0.5s ease-out;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      padding: 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+
+/* ダークモード時の白背景コンテンツエリアの共通スタイル */
+.app-container.dark-mode [class*="-page"],      /* すべての〇〇-pageクラス */
+.app-container.dark-mode [class*="-container"], /* すべての〇〇-containerクラス */
+.app-container.dark-mode [class*="-section"],   /* すべての〇〇-sectionクラス */
+.app-container.dark-mode .white-bg {            /* 明示的な白背景クラス */
+  background-color: #ffffff;
+  color: #333333;
+  
+  /* すべての子要素にテキストカラーを継承 */
+  & * {
+    color: inherit;
+  }
+  
+  /* リンクスタイル */
+  & a {
+    color: #4695b7;
+    
+    &:hover {
+      color: #004499;
+    }
+  }
+  
+  /* 入力フィールドのスタイル */
+  & input,
+  & textarea,
+  & select {
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    
+    &:focus {
+      border-color: #4695b7;
+    }
+  }
+  
+  /* ボタンのスタイル */
+  & button {
+    color: inherit;
+    
+    &.primary {
+      background-color: #4695b7;
+      color: #ffffff;
+    }
+  }
+}
