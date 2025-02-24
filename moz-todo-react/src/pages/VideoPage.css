@@ -1,0 +1,66 @@
+.video-page {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  .video-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .video-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .video-generatedAt {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .video-container {
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .video-caption {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Archive ボタン群 */
+  .archive-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .archive-button, .go-to-archives-button {
+    background-color: #16213e;
+    color: #ffffff !important;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .archive-button:hover:not(:disabled),
+  .go-to-archives-button:hover {
+    background-color: #1a1a2e;
+  }
+  
+  .archive-button.archived {
+    background-color: #ff7a5a;
+    cursor: not-allowed;
+  }

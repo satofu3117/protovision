@@ -1,0 +1,58 @@
+.generating-page {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+    animation: fadeInUp 0.5s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .progress-bar-container {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    height: 20px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #ff7a5a;
+    width: 0%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+  
+  .completed-animation {
+    font-size: 2rem;
+    color: #ff7a5a !important;
+    margin-top: 1rem;
+    animation: popIn 1s ease-out;
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

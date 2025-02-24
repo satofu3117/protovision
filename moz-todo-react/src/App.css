@@ -1,0 +1,43 @@
+/* ライトモード */
+.app-container.light-mode {
+  --header-bg: #002B5C;      /* 深いミッドナイトブルー */
+  --header-text: #FFFFFF;    /* 白 */
+  
+  --sidebar-bg: #CED9E0;     /* クールなブルーグレー */
+  --sidebar-text: #222222;   /* 濃いグレー */
+  
+  --footer-bg: #002B5C;      /* ヘッダーと同じ深いブルー */
+  --footer-text: #FFFFFF;    /* 白 */
+  
+  --accent-color: #4695b7;   /* 鮮やかなシアン（アクセントカラー） */
+  
+  background-color: #EBF0F5; /* 清潔感のあるライトグレー */
+  color: #222222;           /* 主要テキストの色 */
+}
+
+/* ダークモード */
+.app-container.dark-mode {
+  --header-bg: #1a1a2e;
+  --header-text: #FFFFFF;
+  
+  --sidebar-bg: #16213e;
+  --sidebar-text: #FFFFFF;
+  
+  --footer-bg: #1a1a2e;
+  --footer-text: #FFFFFF;
+  
+  --accent-color: #4695b7;
+  
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+}
+
+.page-content {
+  flex: 1;
+  padding: 2rem;
+}
