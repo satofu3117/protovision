@@ -8,18 +8,18 @@ export interface VideoResult {
     caption: string;
 }
 
-// バックエンドが利用可能かチェックする関数
+// Function to check if backend is available
 export async function isBackendAvailable(): Promise<boolean> {
     try {
         const response = await fetch('http://localhost:8000/api/health');
         return response.ok;
     } catch (error) {
-        console.error('バックエンドの接続確認中にエラーが発生しました:', error);
+        console.error('Error checking backend connection:', error);
         return false;
     }
 }
 
-// モックデータを生成する関数（バックエンドが利用できない場合のフォールバック）
+// Generate mock data when backend is unavailable
 const generateMockVideoResult = (fileName: string, fileType: string): VideoResult => {
     const now = new Date();
     const formattedDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
@@ -27,20 +27,20 @@ const generateMockVideoResult = (fileName: string, fileType: string): VideoResul
     return {
         success: true,
         videoUrl: sampleVideo,
-        experiment: `${fileName}から生成した実験（モック）`,
+        experiment: `Experiment generated from ${fileName}`,
         generatedAt: formattedDate,
-        caption: `これは${fileName}から自動生成された実験手順の説明です。このモードではモックデータを使用しています。`
+        caption: `This is an automatically generated experiment procedure from ${fileName}. Using mock data in this mode.`
     };
 };
 
-// マニュアルを処理する関数
+// Process manual text
 export async function processManual(text: string): Promise<VideoResult> {
     try {
         const backendAvailable = await isBackendAvailable();
         
         if (!backendAvailable) {
-            console.info('モックモード: マニュアル処理をシミュレートします');
-            // 処理中の遅延をシミュレート
+            console.info('Mock mode: Simulating manual processing');
+            // Simulate processing delay
             await new Promise(resolve => setTimeout(resolve, 1500));
             return generateMockVideoResult('sample_manual.txt', 'text/plain');
         }
@@ -54,7 +54,7 @@ export async function processManual(text: string): Promise<VideoResult> {
         });
 
         if (!response.ok) {
-            throw new Error('マニュアル処理に失敗しました');
+            throw new Error('Failed to process manual');
         }
 
         const data = await response.json();
@@ -66,16 +66,16 @@ export async function processManual(text: string): Promise<VideoResult> {
             caption: data.caption
         };
     } catch (error) {
-        console.error('マニュアル処理中にエラーが発生しました:', error);
+        console.error('Error during manual processing:', error);
         throw error;
     }
 }
 
 export async function uploadFile(file: File): Promise<VideoResult> {
     try {
-        console.log('ファイルをアップロードします:', file.name, file.type);
+        console.log('Uploading file:', file.name, file.type);
         
-        // 実際のAPIリクエスト
+        // Actual API request
         const formData = new FormData();
         formData.append('file', file);
 
@@ -85,7 +85,7 @@ export async function uploadFile(file: File): Promise<VideoResult> {
         });
 
         if (!response.ok) {
-            throw new Error('ファイルアップロードに失敗しました');
+            throw new Error('File upload failed');
         }
 
         const data = await response.json();
@@ -94,18 +94,18 @@ export async function uploadFile(file: File): Promise<VideoResult> {
             videoUrl: sampleVideo,
             experiment: file.name,
             generatedAt: new Date().toLocaleString(),
-            caption: `${file.name}から生成された実験手順の説明です。`
+            caption: `Experiment procedure generated from ${file.name}`
         };
     } catch (error) {
-        console.error('ファイルアップロード中にエラーが発生しました:', error);
+        console.error('Error during file upload:', error);
         
-        // バックエンドが利用可能かチェック
+        // Check if backend is available
         const backendAvailable = await isBackendAvailable();
         
         if (!backendAvailable) {
-            // モックレスポンスを返す
-            console.info('モックモード: ファイルアップロードをシミュレートします', file.name, file.type);
-            // 処理中の遅延をシミュレート
+            // Return mock response
+            console.info('Mock mode: Simulating file upload', file.name, file.type);
+            // Simulate processing delay
             await new Promise(resolve => setTimeout(resolve, 1500));
             return generateMockVideoResult(file.name, file.type);
         }

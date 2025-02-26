@@ -8,9 +8,9 @@ const VideoPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { experiment, generatedAt, caption, videoUrl } = location.state || { 
-    experiment: "デフォルト実験名", 
-    generatedAt: "不明", 
-    caption: "ここに実験手順の詳細キャプションが表示されます。",
+    experiment: "Default Experiment", 
+    generatedAt: "Unknown", 
+    caption: "Experiment procedure details will be displayed here.",
     videoUrl: sampleVideo
   };
 
@@ -38,7 +38,7 @@ const VideoPage = () => {
           style={{ backgroundColor: '#000' }}
         >
           <source src={videoUrl} type="video/mp4" />
-          お使いのブラウザは動画の再生に対応していません。
+          Your browser does not support video playback.
         </video>
       </div>
       <div className="video-caption">
@@ -50,10 +50,10 @@ const VideoPage = () => {
           onClick={handleArchive} 
           disabled={archived}
         >
-          {archived ? "アーカイブ済み" : "アーカイブする"}
+          {archived ? "Archived" : "Archive"}
         </button>
         <button className="go-to-archives-button" onClick={handleGoToArchives}>
-          アーカイブ一覧へ
+          Go to Archives
         </button>
       </div>
     </div>
