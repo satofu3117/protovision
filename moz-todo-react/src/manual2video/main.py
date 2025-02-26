@@ -1,5 +1,6 @@
 from text import extract_chapters_with_keyword
 from rag import generate_advice
+from luma_ai import process_steps
 
 def main():
     sample_file_path = "sample_manual.txt"
@@ -11,9 +12,8 @@ def main():
     extracted_chapters = extract_chapters_with_keyword(sample_text, keyword="手順")
     
     chapeter_rag=generate_advice(extracted_chapters)
-    print(chapeter_rag)
-
     
+    process_steps(chapeter_rag)
 
 
 if __name__ == '__main__':
