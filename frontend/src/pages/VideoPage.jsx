@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './VideoPage.css';
-import sampleVideo from '../assets/sample_experiment.mp4';
+import sampleVideo from '../assets/videos/sample_experiment.mp4';
 
 const VideoPage = () => {
   const location = useLocation();
