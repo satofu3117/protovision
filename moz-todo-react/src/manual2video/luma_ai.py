@@ -22,7 +22,7 @@ def generate_video(prompt, step_number):
         video_url = generation.assets.video
         response = requests.get(video_url)
 
-        filename = f"step_{step_number}.mov"
+        filename = f"step_{step_number}.mp4"
         with open(filename, "wb") as file:
             file.write(response.content)
         print(f"動画 {filename} を保存しました。")

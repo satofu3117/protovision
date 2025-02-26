@@ -5,14 +5,14 @@ import './ArchivePage.css';
 
 const dummyData = {
   private: [
-    { experiment: "実験A", generatedAt: "2025-01-01 10:00", user: "User1", updatedAt: "2025-01-02 11:00" },
-    { experiment: "実験B", generatedAt: "2025-01-03 12:00", user: "User2", updatedAt: "2025-01-04 13:00" },
-    { experiment: "実験C", generatedAt: "2025-01-05 14:00", user: "User3", updatedAt: "2025-01-06 15:00" }
+    { experiment: "Experiment_A", generatedAt: "2025-01-01 10:00", user: "User1", updatedAt: "2025-01-02 11:00" },
+    { experiment: "Experiment_B", generatedAt: "2025-01-03 12:00", user: "User2", updatedAt: "2025-01-04 13:00" },
+    { experiment: "Experiment_C", generatedAt: "2025-01-05 14:00", user: "User3", updatedAt: "2025-01-06 15:00" }
   ],
   public: [
-    { experiment: "実験D", generatedAt: "2025-02-01 10:00", user: "User4", updatedAt: "2025-02-02 11:00" },
-    { experiment: "実験E", generatedAt: "2025-02-03 12:00", user: "User5", updatedAt: "2025-02-04 13:00" },
-    { experiment: "実験F", generatedAt: "2025-02-05 14:00", user: "User6", updatedAt: "2025-02-06 15:00" }
+    { experiment: "Experiment_D", generatedAt: "2025-02-01 10:00", user: "User4", updatedAt: "2025-02-02 11:00" },
+    { experiment: "Experiment_E", generatedAt: "2025-02-03 12:00", user: "User5", updatedAt: "2025-02-04 13:00" },
+    { experiment: "Experiment_F", generatedAt: "2025-02-05 14:00", user: "User6", updatedAt: "2025-02-06 15:00" }
   ]
 };
 
@@ -49,7 +49,7 @@ const ArchivePage = () => {
             state={{ 
               experiment: item.experiment, 
               generatedAt: item.generatedAt, 
-              caption: "ここに実験手順の詳細キャプションが表示されます。" 
+              caption: "Detailed experiment procedure caption will be displayed here."
             }}
           >
             {item.experiment}
