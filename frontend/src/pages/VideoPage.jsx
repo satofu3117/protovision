@@ -8,8 +8,8 @@ const VideoPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { experiment, generatedAt, caption, videoUrl } = location.state || { 
-    experiment: "Default Experiment", 
-    generatedAt: "Unknown", 
+    experiment: "Sample Experiment", 
+    generatedAt: "2025-02-26 10:00", 
     caption: "Experiment procedure details will be displayed here.",
     videoUrl: sampleVideo
   };
