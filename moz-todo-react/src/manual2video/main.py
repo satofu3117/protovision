@@ -1,4 +1,5 @@
 from text import extract_chapters_with_keyword
+from rag import generate_advice
 
 def main():
     sample_file_path = "sample_manual.txt"
@@ -9,10 +10,11 @@ def main():
         # 実験プロトコルを抽出
     extracted_chapters = extract_chapters_with_keyword(sample_text, keyword="手順")
     
-    print("抽出された章:")
-    for chapter in extracted_chapters:
-        print("-----")
-        print(chapter)
+    chapeter_rag=generate_advice(extracted_chapters)
+    print(chapeter_rag)
+
+    
+
 
 if __name__ == '__main__':
     main()
