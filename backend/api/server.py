@@ -8,7 +8,7 @@ import time
 import random
 
 # FastAPIアプリケーションの作成
-app = FastAPI(title="動画マニュアル生成APIサーバー")
+app = FastAPI(title="Video Manual Generation API Server")
 
 # CORS設定
 app.add_middleware(
@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 # アップロードされたファイルを保存するディレクトリを作成
-UPLOAD_DIR = "uploads"
+UPLOAD_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 # サンプル動画URL
@@ -57,9 +57,9 @@ async def upload_file(file: UploadFile = File(...)) -> Dict[str, Any]:
     return {
         "success": True,
         "videoUrl": video_url,
-        "experiment": f"{file.filename}から生成した実験",
+        "experiment": f"Experiment generated from {file.filename}",
         "generatedAt": formatted_date,
-        "caption": f"これは{file.filename}から自動生成された実験手順の説明です。バックエンドサーバーで処理されました。"
+        "caption": f"This is an automatically generated experiment procedure from {file.filename}. Processed by the backend server."
     }
 
 # テキスト処理エンドポイント
@@ -74,7 +74,7 @@ async def process_manual(request: Dict[str, str]) -> Dict[str, Any]:
     # 処理されたテキストを返す
     return {
         "success": True,
-        "result": f"処理されたテキスト: {text[:50]}..."
+        "result": f"Processed text: {text[:50]}..."
     }
 
 # サーバーを起動する関数

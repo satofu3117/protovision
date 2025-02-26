@@ -1,4 +1,4 @@
-import sampleVideo from '../assets/sample_experiment.mp4';
+import sampleVideo from '../assets/videos/sample_experiment.mp4';
 
 export interface VideoResult {
     success: boolean;
@@ -61,9 +61,9 @@ export async function processManual(text: string): Promise<VideoResult> {
         return {
             success: true,
             videoUrl: sampleVideo,
-            experiment: data.experiment,
-            generatedAt: data.generatedAt,
-            caption: data.caption
+            experiment: data.experiment || 'Sample Experiment',
+            generatedAt: data.generatedAt || new Date().toLocaleString(),
+            caption: data.caption || 'Sample experiment procedure'
         };
     } catch (error) {
         console.error('Error during manual processing:', error);
