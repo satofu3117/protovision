@@ -17,7 +17,7 @@ describe('UploadPage', () => {
     jest.clearAllMocks();
   });
 
-  test('PDFファイルのアップロードが正常に動作する', async () => {
+  test('PDF file upload works correctly', async () => {
     const mockFile = new File(['dummy content'], 'test.pdf', { type: 'application/pdf' });
     uploadFile.mockResolvedValueOnce({
       videoUrl: 'test-url',
@@ -48,7 +48,7 @@ describe('UploadPage', () => {
     });
   });
 
-  test('テキストファイルのアップロードが正常に動作する', async () => {
+  test('Text file upload works correctly', async () => {
     const mockFile = new File(['dummy content'], 'test.txt', { type: 'text/plain' });
     uploadFile.mockResolvedValueOnce({
       videoUrl: 'test-url',
@@ -79,7 +79,7 @@ describe('UploadPage', () => {
     });
   });
 
-  test('非対応のファイル形式がアップロードされた場合にエラーを表示する', () => {
+  test('Shows error for unsupported file types', () => {
     const mockFile = new File(['dummy content'], 'test.jpg', { type: 'image/jpeg' });
 
     render(
@@ -91,10 +91,10 @@ describe('UploadPage', () => {
     const input = screen.getByRole('file');
     fireEvent.change(input, { target: { files: [mockFile] } });
 
-    expect(screen.getByText('PDFまたはテキストファイルを選択してください')).toBeInTheDocument();
+    expect(screen.getByText('PDF or text file must be selected')).toBeInTheDocument();
   });
 
-  test('アップロード中はボタンとファイル入力が無効になる', async () => {
+  test('Button and file input are disabled during upload', async () => {
     const mockFile = new File(['dummy content'], 'test.pdf', { type: 'application/pdf' });
     uploadFile.mockImplementationOnce(() => new Promise(resolve => setTimeout(resolve, 1000)));
 
@@ -112,10 +112,10 @@ describe('UploadPage', () => {
 
     expect(button).toBeDisabled();
     expect(input).toBeDisabled();
-    expect(screen.getByText('アップロード中...')).toBeInTheDocument();
+    expect(screen.getByText('Uploading...')).toBeInTheDocument();
   });
 
-  test('アップロードエラー時にエラーメッセージを表示する', async () => {
+  test('Shows error message when upload fails', async () => {
     const mockFile = new File(['dummy content'], 'test.pdf', { type: 'application/pdf' });
     uploadFile.mockRejectedValueOnce(new Error('Upload failed'));
 
@@ -132,7 +132,7 @@ describe('UploadPage', () => {
     fireEvent.click(button);
 
     await waitFor(() => {
-      expect(screen.getByText('動画生成に失敗しました。もう一度お試しください。')).toBeInTheDocument();
+      expect(screen.getByText('Video generation failed. Please try again.')).toBeInTheDocument();
     });
   });
 }); 

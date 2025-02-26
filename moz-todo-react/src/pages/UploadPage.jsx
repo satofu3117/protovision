@@ -6,7 +6,7 @@ import './UploadPage.css';
 const ALLOWED_FILE_TYPES = ['application/pdf', 'text/plain'];
 const FILE_TYPE_NAMES = {
   'application/pdf': 'PDF',
-  'text/plain': 'テキスト'
+  'text/plain': 'Text'
 };
 
 const UploadPage = () => {
@@ -22,7 +22,7 @@ const UploadPage = () => {
       setError(null);
     } else {
       setFile(null);
-      setError('PDFまたはテキストファイルを選択してください');
+      setError('Please select a PDF or text file');
     }
   };
 
@@ -43,12 +43,12 @@ const UploadPage = () => {
         }
       });
     } catch (error) {
-      console.error('ファイル処理中のエラー:', error);
+      console.error('Error during file processing:', error);
       setError(
-        'ファイル処理中にエラーが発生しました。' + 
+        'An error occurred during file processing. ' + 
         (error.message === 'Failed to fetch' ? 
-          'サーバー接続できません。ネットワーク接続を確認してください。' : 
-          'もう一度お試しください。')
+          'Cannot connect to server. Please check your network connection.' : 
+          'Please try again.')
       );
       setIsLoading(false);
     }
@@ -56,9 +56,9 @@ const UploadPage = () => {
 
   return (
     <div className="upload-page">
-      <h2>ファイルをアップロード</h2>
+      <h2>Upload File</h2>
       <div className="file-types">
-        <p>対応ファイル形式: PDF, テキスト</p>
+        <p>Supported file types: PDF, Text</p>
       </div>
       <div className="upload-area">
         <input 
@@ -66,7 +66,7 @@ const UploadPage = () => {
           accept=".pdf,.txt" 
           onChange={handleFileChange}
           disabled={isLoading}
-          aria-label="ファイルを選択"
+          aria-label="Select file"
           role="file"
         />
       </div>
@@ -76,11 +76,11 @@ const UploadPage = () => {
         onClick={handleGenerate} 
         disabled={!file || isLoading}
       >
-        {isLoading ? 'アップロード中...' : '動画を生成'}
+        {isLoading ? 'Uploading...' : 'Generate Video'}
       </button>
       {file && (
         <p className="selected-file">
-          選択されたファイル: {file.name} ({FILE_TYPE_NAMES[file.type]})
+          Selected file: {file.name} ({FILE_TYPE_NAMES[file.type]})
         </p>
       )}
     </div>

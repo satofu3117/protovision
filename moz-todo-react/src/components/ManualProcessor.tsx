@@ -16,7 +16,7 @@ export function ManualProcessor() {
             const processedResult = await processManual(manualText);
             setResult(processedResult);
         } catch (err) {
-            setError(err instanceof Error ? err.message : '予期せぬエラーが発生しました');
+            setError(err instanceof Error ? err.message : 'An unexpected error occurred');
         } finally {
             setLoading(false);
         }
@@ -28,17 +28,17 @@ export function ManualProcessor() {
                 <textarea
                     value={manualText}
                     onChange={(e) => setManualText(e.target.value)}
-                    placeholder="マニュアルテキストを入力してください"
+                    placeholder="Enter manual text"
                 />
                 <button type="submit" disabled={loading}>
-                    {loading ? '処理中...' : '処理開始'}
+                    {loading ? 'Processing...' : 'Start Processing'}
                 </button>
             </form>
 
             {error && <div className="error">{error}</div>}
             {result && (
                 <div className="result">
-                    <h3>処理結果:</h3>
+                    <h3>Processing Result:</h3>
                     <pre>{result}</pre>
                 </div>
             )}

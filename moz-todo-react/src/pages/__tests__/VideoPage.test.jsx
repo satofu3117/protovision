@@ -6,9 +6,9 @@ import VideoPage from '../VideoPage';
 const mockNavigate = jest.fn();
 const mockLocation = {
   state: {
-    experiment: 'テスト実験',
+    experiment: 'Test Experiment',
     generatedAt: '2024-02-26',
-    caption: 'テストキャプション',
+    caption: 'Test Caption',
     videoUrl: 'https://example.com/test-video'
   }
 };
@@ -24,19 +24,19 @@ describe('VideoPage', () => {
     mockNavigate.mockClear();
   });
 
-  test('動画情報が正しく表示される', () => {
+  test('Video information is displayed correctly', () => {
     render(
       <BrowserRouter>
         <VideoPage />
       </BrowserRouter>
     );
 
-    expect(screen.getByText('テスト実験')).toBeInTheDocument();
+    expect(screen.getByText('Test Experiment')).toBeInTheDocument();
     expect(screen.getByText('2024-02-26')).toBeInTheDocument();
-    expect(screen.getByText('テストキャプション')).toBeInTheDocument();
+    expect(screen.getByText('Test Caption')).toBeInTheDocument();
   });
 
-  test('iframeが正しい属性で表示される', () => {
+  test('iframe is displayed with correct attributes', () => {
     render(
       <BrowserRouter>
         <VideoPage />

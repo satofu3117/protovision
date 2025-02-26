@@ -92,10 +92,10 @@ const ArchivePage = () => {
         <table>
           <thead>
             <tr>
-              <th>実験名</th>
-              <th>生成日時</th>
-              <th>ユーザー名</th>
-              <th>最終更新日</th>
+              <th>Experiment Name</th>
+              <th>Generated At</th>
+              <th>Username</th>
+              <th>Last Updated</th>
             </tr>
           </thead>
           <tbody>

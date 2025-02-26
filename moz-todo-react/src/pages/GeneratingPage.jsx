@@ -18,7 +18,7 @@ const GeneratingPage = () => {
             clearInterval(interval);
             setProgress(100);
             setCompleted(true);
-            // 「Completed!」アニメーション表示後、2秒で /video ページに遷移
+            // "Completed!" animation display for 2 seconds before redirecting to /video page
             setTimeout(() => {
               navigate('/video', { state: videoData });
             }, 2000);
@@ -33,12 +33,12 @@ const GeneratingPage = () => {
 
   return (
     <div className="generating-page">
-      <h2>動画マニュアルを生成中...</h2>
+      <h2>Generating Video Manual...</h2>
       <div className="progress-bar-container">
         <div className="progress-bar" style={{ width: `${progress}%` }}></div>
       </div>
       <p>{progress}%</p>
-      {completed && <div className="completed-animation">生成完了!</div>}
+      {completed && <div className="completed-animation">Generation Complete!</div>}
     </div>
   );
 };

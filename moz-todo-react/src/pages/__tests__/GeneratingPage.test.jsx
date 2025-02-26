@@ -28,7 +28,7 @@ describe('GeneratingPage', () => {
     jest.useRealTimers();
   });
 
-  test('プログレスバーが正しく進行する', () => {
+  test('Progress bar advances correctly', () => {
     render(
       <BrowserRouter>
         <GeneratingPage />
@@ -46,7 +46,7 @@ describe('GeneratingPage', () => {
     expect(parseInt(progressText.textContent)).toBeGreaterThan(0);
   });
 
-  test('生成完了時に完了メッセージを表示する', () => {
+  test('Shows completion message when finished', () => {
     render(
       <BrowserRouter>
         <GeneratingPage />
@@ -60,7 +60,7 @@ describe('GeneratingPage', () => {
     expect(screen.getByText('生成完了!')).toBeInTheDocument();
   });
 
-  test('ページタイトルが正しく表示される', () => {
+  test('Page title is displayed correctly', () => {
     render(
       <BrowserRouter>
         <GeneratingPage />
