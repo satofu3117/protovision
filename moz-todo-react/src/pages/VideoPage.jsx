@@ -10,7 +10,7 @@ const VideoPage = () => {
     experiment: "デフォルト実験名", 
     generatedAt: "不明", 
     caption: "ここに実験手順の詳細キャプションが表示されます。",
-    videoUrl: "https://www.youtube.com/embed/XbGs_qK2PQA"
+    videoUrl: "/src/assets/hackerthon_video.mov"
   };
 
   const [archived, setArchived] = useState(false);
@@ -30,15 +30,15 @@ const VideoPage = () => {
         <span className="video-generatedAt">{generatedAt}</span>
       </div>
       <div className="video-container">
-        <iframe 
+        <video 
           width="100%" 
           height="480" 
-          src={videoUrl} 
-          title="Video Manual" 
-          style={{ border: 'none' }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowFullScreen
-        ></iframe>
+          controls
+          style={{ backgroundColor: '#000' }}
+        >
+          <source src={videoUrl} type="video/quicktime" />
+          お使いのブラウザは動画の再生に対応していません。
+        </video>
       </div>
       <div className="video-caption">
         <p>{caption}</p>
