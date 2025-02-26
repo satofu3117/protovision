@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './VideoPage.css';
+import sampleVideo from '../assets/sample_experiment.mp4';
 
 const VideoPage = () => {
   const location = useLocation();
@@ -10,7 +11,7 @@ const VideoPage = () => {
     experiment: "デフォルト実験名", 
     generatedAt: "不明", 
     caption: "ここに実験手順の詳細キャプションが表示されます。",
-    videoUrl: "/src/assets/sample_experiment.mp4"
+    videoUrl: sampleVideo
   };
 
   const [archived, setArchived] = useState(false);
@@ -36,7 +37,7 @@ const VideoPage = () => {
           controls
           style={{ backgroundColor: '#000' }}
         >
-          <source src={videoUrl} type="video/quicktime" />
+          <source src={videoUrl} type="video/mp4" />
           お使いのブラウザは動画の再生に対応していません。
         </video>
       </div>

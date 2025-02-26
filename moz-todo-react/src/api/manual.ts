@@ -1,3 +1,5 @@
+import sampleVideo from '../assets/sample_experiment.mp4';
+
 export interface VideoResult {
     success: boolean;
     videoUrl: string;
@@ -24,7 +26,7 @@ const generateMockVideoResult = (fileName: string, fileType: string): VideoResul
     
     return {
         success: true,
-        videoUrl: '/src/assets/sample_experiment.mp4',
+        videoUrl: sampleVideo,
         experiment: `${fileName}から生成した実験（モック）`,
         generatedAt: formattedDate,
         caption: `これは${fileName}から自動生成された実験手順の説明です。このモードではモックデータを使用しています。`
@@ -58,7 +60,7 @@ export async function processManual(text: string): Promise<VideoResult> {
         const data = await response.json();
         return {
             success: true,
-            videoUrl: '/src/assets/sample_experiment.mp4',
+            videoUrl: sampleVideo,
             experiment: data.experiment,
             generatedAt: data.generatedAt,
             caption: data.caption
@@ -89,7 +91,7 @@ export async function uploadFile(file: File): Promise<VideoResult> {
         const data = await response.json();
         return {
             success: true,
-            videoUrl: '/src/assets/sample_experiment.mp4',
+            videoUrl: sampleVideo,
             experiment: file.name,
             generatedAt: new Date().toLocaleString(),
             caption: `${file.name}から生成された実験手順の説明です。`
