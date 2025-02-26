@@ -10,7 +10,7 @@ const VideoPage = () => {
     experiment: "デフォルト実験名", 
     generatedAt: "不明", 
     caption: "ここに実験手順の詳細キャプションが表示されます。",
-    videoUrl: "/src/assets/hackerthon_video.mov"
+    videoUrl: "/src/assets/sample_experiment.mp4"
   };
 
   const [archived, setArchived] = useState(false);
